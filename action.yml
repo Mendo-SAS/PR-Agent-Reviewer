@@ -1,0 +1,24 @@
+name: 'AI PR Reviewer'
+description: 'AI-powered pull request validation using OpenAI API'
+author: 'Mendo'
+branding:
+  icon: 'eye'
+  color: 'blue'
+
+inputs:
+  GITHUB_TOKEN:
+    description: 'GitHub token for API access'
+    required: true
+  OPENAI_API_KEY:
+    description: 'OpenAI API key for AI analysis'
+    required: true
+  EXCLUDE_PATTERNS:
+    description: 'File patterns to exclude from analysis (comma-separated)'
+    required: false
+    default: '*.md,*.txt,*.lock,package-lock.json,yarn.lock,*.log'
+
+runs:
+  using: 'node20'
+  main: 'dist/main.js'
+
+
