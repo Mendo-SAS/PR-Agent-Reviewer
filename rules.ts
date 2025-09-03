@@ -1,4 +1,3 @@
-
 export const codingRules = [
     {
     name: 'Code Quality',

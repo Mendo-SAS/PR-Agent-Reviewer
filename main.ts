@@ -79,13 +79,11 @@ class PRValidator {
       // Post review comment
       await this.postReviewComment(pullRequest.number, analysisResult);
       
-      // Set status
+      // Report outcome. Let the job status be the single source of truth.
       if (analysisResult.approved) {
         core.info('✅ PR approved by AI reviewer');
-        await this.setStatus('success');
       } else {
         core.setFailed('❌ PR rejected by AI reviewer');
-        await this.setStatus('failure');
       }
       
     } catch (error) {
@@ -250,15 +248,7 @@ ${result.issues.map(issue => `- ${issue}`).join('\n')}
     });
   }
 
-  private async setStatus(state: 'success' | 'failure' | 'pending'): Promise<void> {
-    await this.octokit.rest.repos.createCommitStatus({
-      owner: github.context.repo.owner,
-      repo: github.context.repo.repo,
-      sha: github.context.payload.pull_request?.head.sha,
-      state: state,
-      context: 'AI PR Reviewer',
-    });
-  }
+  
 }
 
 // Run the action
