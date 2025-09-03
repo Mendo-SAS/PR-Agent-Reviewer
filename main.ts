@@ -206,6 +206,8 @@ ${file.patch}
       }
     }
 
+    core.info(`[DEBUG] - PR Content: ${content}`);
+
     return content;
   }
 
