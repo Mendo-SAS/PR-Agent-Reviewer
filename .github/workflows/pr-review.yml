@@ -16,7 +16,6 @@ permissions:
 jobs:
   ai-review:
     name: AI Code Review
-    environment: secrets-env
     runs-on: ubuntu-latest
     
     steps:
