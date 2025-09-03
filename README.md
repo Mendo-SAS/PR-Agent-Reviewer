@@ -32,8 +32,6 @@ The workflow file `.github/workflows/pr-review.yml` is already configured. Just 
 
 ### System Rules
 
-Edit the `SYSTEM_RULES` in `.github/workflows/pr-review.yml` or use the provided `validation-rules.json`:
-
 ```json
 [
   {
@@ -53,10 +51,7 @@ Edit the `SYSTEM_RULES` in `.github/workflows/pr-review.yml` or use the provided
 
 | Input | Description | Default |
 |-------|-------------|---------|
-| `OPENAI_MODEL` | OpenAI model to use | `gpt-4` |
-| `MAX_FILES` | Maximum files to analyze | `10` |
 | `EXCLUDE_PATTERNS` | File patterns to skip | `*.md,*.txt,*.lock` |
-| `SYSTEM_RULES` | Custom validation rules | Default rules |
 
 ### Example Custom Rules
 
