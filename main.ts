@@ -157,8 +157,6 @@ class PRValidator {
           { role: 'system', content: systemPrompt },
           { role: 'user', content: prContent }
         ],
-        temperature: 0.1,
-        max_tokens: 2000
       });
 
       const analysis = response.choices[0]?.message?.content;
