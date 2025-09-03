@@ -54,8 +54,6 @@ Edit the `SYSTEM_RULES` in `.github/workflows/pr-review.yml` or use the provided
 
 | Input | Description | Default |
 |-------|-------------|---------|
-| `OPENAI_MODEL` | OpenAI model to use | `gpt-4` |
-| `MAX_FILES` | Maximum files to analyze | `10` |
 | `EXCLUDE_PATTERNS` | File patterns to skip | `*.md,*.txt,*.lock` |
 | `SYSTEM_RULES` | Custom validation rules | Default rules |
 

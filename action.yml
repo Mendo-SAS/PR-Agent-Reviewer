@@ -13,14 +13,6 @@ inputs:
   OPENAI_API_KEY:
     description: 'OpenAI API key for AI analysis'
     required: true
-  OPENAI_MODEL:
-    description: 'OpenAI model to use'
-    required: false
-    default: 'gpt-4'
-  MAX_FILES:
-    description: 'Maximum number of files to analyze'
-    required: false
-    default: '10'
   SYSTEM_RULES:
     description: 'Custom validation rules (JSON format)'
     required: false

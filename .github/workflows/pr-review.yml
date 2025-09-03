@@ -41,9 +41,7 @@ jobs:
         uses: ./
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || vars.OPENAI_API_KEY }}
-          OPENAI_MODEL: 'gpt-4' # or 'gpt-3.5-turbo' for lower cost
-          MAX_FILES: '15'
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           EXCLUDE_PATTERNS: '*.md,*.txt,*.lock,package-lock.json,yarn.lock,*.log'
           SYSTEM_RULES: |
             [

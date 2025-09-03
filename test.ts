@@ -62,3 +62,16 @@ student.sayGoodbye();
 student.sayAge();
 student.sayMajor();
 student.sayGender();
+
+
+// Change for testing purpose
+const student2 = new Student("John", 20, "male", "Computer Science");
+console.log(`[DEBUG] - new student is ${student2.age} compared to ${student.age}`);
+student2.sayHello();
+student2.sayAge();
+student.sayHello();
+student.sayAge();
+
+
+
+console.log("[DEBUG] - Complete");

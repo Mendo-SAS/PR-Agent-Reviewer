@@ -67,9 +67,7 @@
 
 Edit `.github/workflows/pr-review.yml` to customize:
 
-- **Model**: Change `OPENAI_MODEL` to `gpt-3.5-turbo` for lower costs
 - **Rules**: Modify `SYSTEM_RULES` for your specific requirements
-- **File limits**: Adjust `MAX_FILES` based on your typical PR size
 - **Exclusions**: Add more patterns to `EXCLUDE_PATTERNS`
 
 ### 6. Cost Management
@@ -77,15 +75,15 @@ Edit `.github/workflows/pr-review.yml` to customize:
 **Important**: Monitor your OpenAI usage to avoid unexpected bills.
 
 - **Model Costs** (approximate):
-  - GPT-4: $0.03 per 1K tokens
-  - GPT-3.5-turbo: $0.002 per 1K tokens
+   - GPT-5 : $0.00125 per 1K tokens
+   - GPT-4: $0.03 per 1K tokens
+   - GPT-3.5-turbo: $0.002 per 1K tokens
 
 - **Typical PR Review**: 500-2000 tokens
 - **Monthly estimate**: $5-50 depending on PR frequency and model
 
 **Cost-saving tips**:
 - Use `gpt-3.5-turbo` for most reviews
-- Set `MAX_FILES: 5` for large repositories
 - Add build/generated files to exclusions
 - Consider running only on specific branches
 
@@ -96,7 +94,7 @@ Edit `.github/workflows/pr-review.yml` to customize:
 | Action fails with "API key not found" | Check `OPENAI_API_KEY` secret is set correctly |
 | No status check appears | Ensure workflow has proper permissions in YAML |
 | PR can be merged despite failure | Verify branch protection rule includes "AI Code Review" |
-| Large PRs timeout | Increase `MAX_FILES` or add more exclusion patterns |
+| Large PRs timeout | Add more exclusion patterns |
 | Too many requests | Add rate limiting or reduce PR frequency |
 
 ### 8. Advanced Configuration
