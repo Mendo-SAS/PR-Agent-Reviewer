@@ -4,10 +4,9 @@ An intelligent pull request validation agent powered by OpenAI that automaticall
 
 ## Features
 
-- 🤖 **AI-Powered Reviews**: Uses GPT-4 to analyze code changes
-- 🛡️ **Customizable Rules**: Define your own validation criteria
-- 🚫 **Merge Protection**: Prevents merging of non-compliant PRs
-- 📊 **Detailed Feedback**: Provides scores, issues, and suggestions
+- 🤖 **AI-Powered Reviews**
+- 🛡️ **Customizable Rules**: Under Rules.ts
+- 📊 **Detailed Feedback**: Provides issues
 - ⚡ **Fast & Efficient**: Smart file filtering and analysis
 - 🔒 **Secure**: Uses GitHub secrets for API keys
 
@@ -95,15 +94,10 @@ SYSTEM_RULES: |
 The AI reviewer provides:
 
 - ✅/❌ **Approval Status**
-- 📊 **Quality Score** (0-100)
 - 🔴 **Critical Issues** (must fix)
-- 💡 **Suggestions** (optional improvements)
-- 📝 **Summary** of changes
 
 ## Cost Optimization
 
-- Use `gpt-3.5-turbo` for lower costs
-- Limit `MAX_FILES` for large PRs
 - Add more exclusion patterns
 - Use specific validation rules
 
