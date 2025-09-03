@@ -1,0 +1,35 @@
+name: 'AI PR Reviewer'
+description: 'AI-powered pull request validation using OpenAI API'
+author: 'Your Name'
+branding:
+  icon: 'eye'
+  color: 'blue'
+
+inputs:
+  GITHUB_TOKEN:
+    description: 'GitHub token for API access'
+    required: true
+    default: ${{ github.token }}
+  OPENAI_API_KEY:
+    description: 'OpenAI API key for AI analysis'
+    required: true
+  OPENAI_MODEL:
+    description: 'OpenAI model to use'
+    required: false
+    default: 'gpt-4'
+  MAX_FILES:
+    description: 'Maximum number of files to analyze'
+    required: false
+    default: '10'
+  SYSTEM_RULES:
+    description: 'Custom validation rules (JSON format)'
+    required: false
+    default: '{}'
+  EXCLUDE_PATTERNS:
+    description: 'File patterns to exclude from analysis (comma-separated)'
+    required: false
+    default: '*.md,*.txt,*.lock,package-lock.json'
+
+runs:
+  using: 'node20'
+  main: 'dist/main.js'
