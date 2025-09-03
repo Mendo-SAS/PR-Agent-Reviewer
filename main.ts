@@ -49,6 +49,9 @@ class PRValidator {
 
 
   private shouldExcludeFile(filename: string): boolean {
+    if (this.excludePatterns.length === 0) {
+      return false;
+    }
     return this.excludePatterns.some(pattern => {
       const regex = new RegExp(pattern.replace(/\*/g, '.*'));
       return regex.test(filename);
@@ -115,26 +118,40 @@ class PRValidator {
     const systemPrompt = this.buildSystemPrompt();
     const prContent = await this.buildPRContent(files, pullRequest);
 
+      
+    let response = null;
     try {
-      const response = await this.openai.chat.completions.create({
+      response = await this.openai.chat.completions.create({
         model: model,
         messages: [
           { role: 'system', content: systemPrompt },
           { role: 'user', content: prContent }
         ],
       });
+      }
+      catch (error) {
+        core.error(`OpenAI API error: ${error}`);
+        core.info("Attempting to change the model to gpt-4o");
+        response = await this.openai.chat.completions.create({
+          model: "gpt-4o",
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: prContent }
+          ],
+        });
+      }
+  
 
-      const analysis = response.choices[0]?.message?.content;
+
+
+      const analysis = response?.choices[0]?.message?.content;
       if (!analysis) {
         throw new Error('No response from OpenAI');
       }
 
       return this.parseAnalysisResult(analysis);
       
-    } catch (error) {
-      core.error(`OpenAI API error: ${error}`);
-      throw error;
-    }
+    
   }
 
   private buildSystemPrompt(): string {
