@@ -33,8 +33,6 @@ The workflow file `.github/workflows/pr-review.yml` is already configured. Just 
 
 ### System Rules
 
-Edit the `SYSTEM_RULES` in `.github/workflows/pr-review.yml` or use the provided `validation-rules.json`:
-
 ```json
 [
   {
@@ -55,7 +53,6 @@ Edit the `SYSTEM_RULES` in `.github/workflows/pr-review.yml` or use the provided
 | Input | Description | Default |
 |-------|-------------|---------|
 | `EXCLUDE_PATTERNS` | File patterns to skip | `*.md,*.txt,*.lock` |
-| `SYSTEM_RULES` | Custom validation rules | Default rules |
 
 ### Example Custom Rules
 

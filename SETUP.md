@@ -67,7 +67,7 @@
 
 Edit `.github/workflows/pr-review.yml` to customize:
 
-- **Rules**: Modify `SYSTEM_RULES` for your specific requirements
+- **Rules**: Modify `SYSTEM_RULES` in rules.ts
 - **Exclusions**: Add more patterns to `EXCLUDE_PATTERNS`
 
 ### 6. Cost Management
@@ -119,23 +119,3 @@ Edit `.github/workflows/pr-review.yml` to customize:
   }
 ]
 ```
-
-#### Multiple Environments
-```yaml
-# Different rules for different branches
-- name: Production Rules
-  if: github.base_ref == 'main'
-  with:
-    SYSTEM_RULES: ${{ vars.PROD_RULES }}
-
-- name: Development Rules  
-  if: github.base_ref == 'develop'
-  with:
-    SYSTEM_RULES: ${{ vars.DEV_RULES }}
-```
-
-## Support
-
-- **GitHub Issues**: Report bugs or feature requests
-- **Documentation**: Check README.md for detailed information
-- **OpenAI Docs**: [OpenAI API Documentation](https://platform.openai.com/docs)

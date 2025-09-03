@@ -43,36 +43,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           EXCLUDE_PATTERNS: '*.md,*.txt,*.lock,package-lock.json,yarn.lock,*.log'
-          SYSTEM_RULES: |
-            [
-              {
-                "name": "Code Quality",
-                "description": "Code should follow best practices, be readable, and well-structured",
-                "required": true
-              },
-              {
-                "name": "Security",
-                "description": "No security vulnerabilities, sensitive data exposure, or unsafe practices",
-                "required": true
-              },
-              {
-                "name": "Error Handling",
-                "description": "Proper error handling and edge case coverage",
-                "required": true
-              },
-              {
-                "name": "Performance",
-                "description": "Code should be efficient and not introduce performance regressions",
-                "required": false
-              },
-              {
-                "name": "Documentation",
-                "description": "Complex functions and classes should have proper documentation",
-                "required": false
-              },
-              {
-                "name": "Testing",
-                "description": "New features should include appropriate unit tests",
-                "required": false
-              }
-            ]

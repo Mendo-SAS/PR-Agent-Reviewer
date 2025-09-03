@@ -13,10 +13,6 @@ inputs:
   OPENAI_API_KEY:
     description: 'OpenAI API key for AI analysis'
     required: true
-  SYSTEM_RULES:
-    description: 'Custom validation rules (JSON format)'
-    required: false
-    default: '{}'
   EXCLUDE_PATTERNS:
     description: 'File patterns to exclude from analysis (comma-separated)'
     required: false

@@ -43,7 +43,7 @@ class PRValidator {
 
     
     // Parse exclude patterns
-    this.excludePatterns = core.getInput('EXCLUDE_PATTERNS').split(',').map((p: string) => p.trim());
+    this.excludePatterns = core.getInput('EXCLUDE_PATTERNS').split(',').map((p: string) => p.trim()) ?? [];
   }
 
 
