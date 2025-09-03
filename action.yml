@@ -1,6 +1,6 @@
 name: 'AI PR Reviewer'
 description: 'AI-powered pull request validation using OpenAI API'
-author: 'Mendo'
+author: 'Your Name'
 branding:
   icon: 'eye'
   color: 'blue'
@@ -20,5 +20,3 @@ inputs:
 runs:
   using: 'node20'
   main: 'dist/main.js'
-
-
