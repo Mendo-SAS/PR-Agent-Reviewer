@@ -26,12 +26,15 @@ class PRValidator {
   private maxFiles: number;
 
   constructor() {
-    const openaiApiKey = core.getInput('OPENAI_API_KEY');
+    // Prefer input; fall back to environment to support environment-level secrets/variables
+    const openaiApiKey = core.getInput('OPENAI_API_KEY') || process.env.OPENAI_API_KEY || process.env.OPENAI_API_TOKEN;
     const githubToken = core.getInput('GITHUB_TOKEN');
     
-    this.openai = new OpenAI({
-      apiKey: openaiApiKey
-    });
+    if (!openaiApiKey) {
+      throw new Error('Missing OpenAI API key. Provide via input OPENAI_API_KEY or env OPENAI_API_KEY.');
+    }
+
+    this.openai = new OpenAI({ apiKey: openaiApiKey });
     
     this.octokit = github.getOctokit(githubToken);
     
@@ -141,7 +144,7 @@ class PRValidator {
   }
 
   private async analyzePR(files: any[], pullRequest: any): Promise<PRAnalysisResult> {
-    const model = core.getInput('OPENAI_MODEL') || 'gpt-4';
+    const model = "gpt-5-2025-08-07";
     
     // Prepare the analysis prompt
     const systemPrompt = this.buildSystemPrompt();
